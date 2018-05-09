@@ -33,10 +33,6 @@ def main():
     data_df = collect_data()
     data_df = process_data(data_df)
     grouped_results, pivot_results = analyse_data(data_df)
-<<<<<<< HEAD:happiness_score_1.py
     plot(pivot_results)
+
 main()
-=======
-    plot(grouped_results,pivot_results)
-main()
->>>>>>> 0a3e256077061666d1a12f3725b764449cc17ea0:happiness_score.py
