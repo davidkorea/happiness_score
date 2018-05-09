@@ -1,8 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-
 def collect_data():
     data_df = pd.read_csv('./data_pd/happiness_report.csv')
     return data_df
@@ -21,7 +19,7 @@ def analyse_data(data_df):
                                    aggfunc='mean')
     return grouped_results,pivot_results
 
-def plot(grouped_results,pivot_results):
+def plot(pivot_results):
     # grouped_results.plot()
     # plt.show()
     pivot_results['Happiness Score'].plot(kind='bar',title='Happiness Score')
@@ -35,5 +33,5 @@ def main():
     data_df = collect_data()
     data_df = process_data(data_df)
     grouped_results, pivot_results = analyse_data(data_df)
-    plot(grouped_results,pivot_results)
+    plot(pivot_results)
 main()
