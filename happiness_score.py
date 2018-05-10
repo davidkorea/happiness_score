@@ -24,9 +24,11 @@ def plot(pivot_results):
     # plt.show()
     pivot_results['Happiness Score'].plot(kind='bar',title='Happiness Score')
     plt.tight_layout()
+    plt.savefig('./pivot_score.png')
     plt.show()
-    pivot_results['Economy (GDP per Capita)'].plot(kind='bar',title='Economy (GDP per Capita)')
+    pivot_results['Economy (GDP per Capita)'].plot(kind='bar',title='Economy (GDP per Capital)')
     plt.tight_layout()
+    plt.savefig('./pivot_gdp.png')
     plt.show()
 
 def main():
