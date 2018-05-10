@@ -164,16 +164,16 @@ data_df.sort_values(['Year','Happiness Score'],ascending=[True,False].inplaxe=Tr
 ```
 3. create Level 
 create a new column named 'Level', which is ranked by 'Scores'
-- apply()
-```php
-def score2level(vars):
-  if var <= 3:
-    level = 'Low'
-  elif var <= 5:
-    level = 'Middle'
-  else:
-    level = 'High'
-   return level
-   
-data_df['Level'] = data_df['Happiness Score'].apply(score2level)
-```
+  - apply()
+  ```php
+  def score2level(vars):
+      if var <= 3:
+          level = 'Low'
+      elif var <= 5:
+          level = 'Middle'
+      else:
+          level = 'High'
+      return level
+
+  data_df['Level'] = data_df['Happiness Score'].apply(score2level)
+  ```
