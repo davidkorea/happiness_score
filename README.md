@@ -138,3 +138,5 @@ plt.show()
 pivot_df['GDP'].plot(kind='bar')
 plt.show()
 ```
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_score.png)
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_gdp.png)
