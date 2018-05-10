@@ -3,6 +3,8 @@
 # 0 
 1. ```data_df.read_csv('./csv')```
 2. ```data_df.sort_values(['Year','Score'], ascending=[True, False], inplace=True)```
+3. ```data_df['new_col'] = data_df['Score'].apply(func)```, ```def func():... ...```
+4. ```data_df['new_col'] = pd.cut(data_df['Score'],bins=[-np.inf,3,5,np.inf],labels=['a','b','c'])```
 
 # 1. Happiness Score
 ## 1.1 Basic
