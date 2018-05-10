@@ -1,25 +1,36 @@
 # Happiness Report Analyse
 
 # 0 
-1. 
+1. Read csv data
 ```php
 data_df.read_csv('./csv')
 ```
-2. 
+2. Sort values
 ```php
 data_df.sort_values(['Year','Score'], ascending=[True, False], inplace=True)
 ```
-3. 
+3. Rank / Classify 1
 ```php
 def func():
     ... ...
 
 data_df['new_col'] = data_df['Score'].apply(func)
 ```
-4. 
+4. Rank / Classify 2
 ```php
 data_df['new_col'] = pd.cut(data_df['Score'],bins=[-np.inf,3,5,np.inf],labels=['a','b','c'])
 ```
+5. Pivot table
+```php
+pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
+                            values=['Country'], aggfunc='count')
+```
+6. Stacked bar plot
+```php
+pivot_df['values', 'columns'].plot(kind='bar', stacked=True, rot=0, title='plot')
+plt.show()
+```
+
 
 # 1. Happiness Score
 ## 1.1 Basic
@@ -267,4 +278,11 @@ Southeastern Asia                  2.0   6.0
 Southern Asia                      5.0   2.0  
 Sub-Saharan Africa                34.0   3.0  
 Western Europe                     0.0  21.0  
+```
+5. plot
+```php
+# pivot_df['Country',2015].plot(kind='bar',stacked=True)
+for year in [2015,2016,2017]:
+    pivot_df['Country', year].plot(bind='bar', stacked=True)
+    plt.show()
 ```
