@@ -20,6 +20,10 @@ data_df.dropna(inplace=True)
 ```php
 data_df.sort_values(['Year','Happiness Score'], ascending=[True,False], inplace=True)
 ```
+  - ascending: ↑, low-high
+  - year: low-high, 2013-2014-2015  
+  - score: high-low
+
 3. groupby - MULTI COLUMNS - MULTI-IDNEX
 ```php
 grouped_year_region_df = data_df.groupby(by=['Year','Region'])['Happiness Score'].mean()
