@@ -1,6 +1,38 @@
-# happiness_report
+# Happiness Report Analyse
 
-# 1. happiness score
+# 0 
+1. Read csv data
+```php
+data_df.read_csv('./csv')
+```
+2. Sort values
+```php
+data_df.sort_values(['Year','Score'], ascending=[True, False], inplace=True)
+```
+3. Rank / Classify 1
+```php
+def func():
+    ... ...
+
+data_df['new_col'] = data_df['Score'].apply(func)
+```
+4. Rank / Classify 2
+```php
+data_df['new_col'] = pd.cut(data_df['Score'],bins=[-np.inf,3,5,np.inf],labels=['a','b','c'])
+```
+5. Pivot table
+```php
+pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
+                            values=['Country'], aggfunc='count')
+```
+6. Stacked bar plot
+```php
+pivot_df['values', 'columns'].plot(kind='bar', stacked=True, rot=0, title='plot')
+plt.show()
+```
+
+
+# 1. Happiness Score
 ## 1.1 Basic
 
 ![](https://github.com/davidkorea/happiness_score/blob/master/images/task.png)
@@ -137,4 +169,120 @@ plt.show()
 
 pivot_df['GDP'].plot(kind='bar')
 plt.show()
+```
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_score.png)
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_gdp.png)
+
+
+# 2. Hapiness Level
+## 2.1 Basic
+![](https://github.com/davidkorea/happiness_score/blob/master/images/task2.jpg)
+![](https://github.com/davidkorea/happiness_score/blob/master/images/apply.jpg)
+![](https://github.com/davidkorea/happiness_score/blob/master/images/cut.jpg)
+
+## 2.2 Summary
+1. collect_data()
+```php
+data_df = pd.read_csv('./data_pd/csv')
+data_df.dropna(inplace=True)
+```
+2. sort_data
+```php
+data_df.sort_values(['Year','Happiness Score'],ascending=[True,False].inplaxe=True)
+```
+3. create Level 
+create a new column named 'Level', which is ranked by 'Scores'
+- apply()
+```php
+def score2level(vars):
+    if var <= 3:
+        level = 'Low'
+    elif var <= 5:
+        level = 'Middle'
+    else:
+        level = 'High'
+    return level
+
+data_df['Level'] = data_df['Happiness Score'].apply(score2level)
+```
+- cut() 连续性的数值分组/切分
+```php
+import numpy as np
+# -∞ = -np.inf, +∞ = np.inf
+data_df['Level'] = pd.cut(data_df['Happiness Score'], bins=[-np.inf,3,5,np.inf], labels=['Low','Middle','High'])
+```
+4. pivot
+```php
+pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
+                            values=['Country'], aggfunc='count')
+pivot_df.fillna(0,inplace=True)
+```
+
+```
+                                Country                                      \
+Year                               2015              2016              2017   
+Level                               Low Middle  High  Low Middle  High  Low   
+Region                                                                        
+Australia and New Zealand           NaN    NaN   2.0  NaN    NaN   2.0  NaN   
+Central and Eastern Europe          NaN    8.0  21.0  NaN    6.0  23.0  NaN   
+Eastern Asia                        NaN    1.0   5.0  NaN    1.0   5.0  NaN   
+Latin America and Caribbean         NaN    3.0  19.0  NaN    2.0  22.0  NaN   
+Middle East and Northern Africa     NaN    8.0  12.0  NaN    6.0  13.0  NaN   
+North America                       NaN    NaN   2.0  NaN    NaN   2.0  NaN   
+Southeastern Asia                   NaN    3.0   6.0  NaN    3.0   6.0  NaN   
+Southern Asia                       NaN    5.0   2.0  NaN    5.0   2.0  NaN   
+Sub-Saharan Africa                  2.0   34.0   4.0  1.0   34.0   3.0  2.0   
+Western Europe                      NaN    1.0  20.0  NaN    NaN  21.0  NaN   
+                                              
+Year                                          
+Level                           Middle  High  
+Region                                        
+Australia and New Zealand          NaN   2.0  
+Central and Eastern Europe         5.0  24.0  
+Eastern Asia                       1.0   5.0  
+Latin America and Caribbean        1.0  21.0  
+Middle East and Northern Africa    7.0  12.0  
+North America                      NaN   2.0  
+Southeastern Asia                  2.0   6.0  
+Southern Asia                      5.0   2.0  
+Sub-Saharan Africa                34.0   3.0  
+Western Europe                     NaN  21.0 
+```
+
+```
+                                Country                                      \
+Year                               2015              2016              2017   
+Level                               Low Middle  High  Low Middle  High  Low   
+Region                                                                        
+Australia and New Zealand           0.0    0.0   2.0  0.0    0.0   2.0  0.0   
+Central and Eastern Europe          0.0    8.0  21.0  0.0    6.0  23.0  0.0   
+Eastern Asia                        0.0    1.0   5.0  0.0    1.0   5.0  0.0   
+Latin America and Caribbean         0.0    3.0  19.0  0.0    2.0  22.0  0.0   
+Middle East and Northern Africa     0.0    8.0  12.0  0.0    6.0  13.0  0.0   
+North America                       0.0    0.0   2.0  0.0    0.0   2.0  0.0   
+Southeastern Asia                   0.0    3.0   6.0  0.0    3.0   6.0  0.0   
+Southern Asia                       0.0    5.0   2.0  0.0    5.0   2.0  0.0   
+Sub-Saharan Africa                  2.0   34.0   4.0  1.0   34.0   3.0  2.0   
+Western Europe                      0.0    1.0  20.0  0.0    0.0  21.0  0.0   
+                                              
+Year                                          
+Level                           Middle  High  
+Region                                        
+Australia and New Zealand          0.0   2.0  
+Central and Eastern Europe         5.0  24.0  
+Eastern Asia                       1.0   5.0  
+Latin America and Caribbean        1.0  21.0  
+Middle East and Northern Africa    7.0  12.0  
+North America                      0.0   2.0  
+Southeastern Asia                  2.0   6.0  
+Southern Asia                      5.0   2.0  
+Sub-Saharan Africa                34.0   3.0  
+Western Europe                     0.0  21.0  
+```
+5. plot
+```php
+# pivot_df['Country',2015].plot(kind='bar',stacked=True)
+for year in [2015,2016,2017]:
+    pivot_df['Country', year].plot(bind='bar', stacked=True)
+    plt.show()
 ```
