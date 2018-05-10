@@ -28,7 +28,10 @@ pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
 6. Stacked bar plot
 ```php
 pivot_df['values', 'columns'].plot(kind='bar', stacked=True, rot=0, title='plot')
-plt.show()
+```
+7. Grouped bar plot
+```ruby
+pivot_df['Happiness Score'].plot(kind='bar')
 ```
 
 
