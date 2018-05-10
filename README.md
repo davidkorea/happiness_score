@@ -25,6 +25,9 @@ data_df['new_col'] = pd.cut(data_df['Score'],bins=[-np.inf,3,5,np.inf],labels=['
 pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
                             values=['Country'], aggfunc='count')
 ```
+- columns: outer level -> inner level. properties in columns should have the **inclusion relationship**
+- values: different pivot table due to different value.
+
 6. Stacked bar plot
 ```php
 pivot_df['values', 'columns'].plot(kind='bar', stacked=True, rot=0, title='plot')
