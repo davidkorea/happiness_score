@@ -200,4 +200,9 @@ import numpy as np
 # -∞ = -np.inf, +∞ = np.inf
 data_df['Level'] = pd.cut(data_df['Happiness Score'], bins=[-np.inf,3,5,np.inf], labels=['Low','Middle','High'])
 ```
- 
+4. pivot
+```php
+pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
+                            values=['Country'], aggfunc='count')
+pivot_df.fillna(0,inplace=True)
+```
