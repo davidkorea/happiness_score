@@ -206,3 +206,65 @@ pivot_df = pd.pivot_table(data_df, index='Region', columns=['Year','Level'],
                             values=['Country'], aggfunc='count')
 pivot_df.fillna(0,inplace=True)
 ```
+
+```
+                                Country                                      \
+Year                               2015              2016              2017   
+Level                               Low Middle  High  Low Middle  High  Low   
+Region                                                                        
+Australia and New Zealand           NaN    NaN   2.0  NaN    NaN   2.0  NaN   
+Central and Eastern Europe          NaN    8.0  21.0  NaN    6.0  23.0  NaN   
+Eastern Asia                        NaN    1.0   5.0  NaN    1.0   5.0  NaN   
+Latin America and Caribbean         NaN    3.0  19.0  NaN    2.0  22.0  NaN   
+Middle East and Northern Africa     NaN    8.0  12.0  NaN    6.0  13.0  NaN   
+North America                       NaN    NaN   2.0  NaN    NaN   2.0  NaN   
+Southeastern Asia                   NaN    3.0   6.0  NaN    3.0   6.0  NaN   
+Southern Asia                       NaN    5.0   2.0  NaN    5.0   2.0  NaN   
+Sub-Saharan Africa                  2.0   34.0   4.0  1.0   34.0   3.0  2.0   
+Western Europe                      NaN    1.0  20.0  NaN    NaN  21.0  NaN   
+                                              
+Year                                          
+Level                           Middle  High  
+Region                                        
+Australia and New Zealand          NaN   2.0  
+Central and Eastern Europe         5.0  24.0  
+Eastern Asia                       1.0   5.0  
+Latin America and Caribbean        1.0  21.0  
+Middle East and Northern Africa    7.0  12.0  
+North America                      NaN   2.0  
+Southeastern Asia                  2.0   6.0  
+Southern Asia                      5.0   2.0  
+Sub-Saharan Africa                34.0   3.0  
+Western Europe                     NaN  21.0 
+```
+
+```
+                                Country                                      \
+Year                               2015              2016              2017   
+Level                               Low Middle  High  Low Middle  High  Low   
+Region                                                                        
+Australia and New Zealand           0.0    0.0   2.0  0.0    0.0   2.0  0.0   
+Central and Eastern Europe          0.0    8.0  21.0  0.0    6.0  23.0  0.0   
+Eastern Asia                        0.0    1.0   5.0  0.0    1.0   5.0  0.0   
+Latin America and Caribbean         0.0    3.0  19.0  0.0    2.0  22.0  0.0   
+Middle East and Northern Africa     0.0    8.0  12.0  0.0    6.0  13.0  0.0   
+North America                       0.0    0.0   2.0  0.0    0.0   2.0  0.0   
+Southeastern Asia                   0.0    3.0   6.0  0.0    3.0   6.0  0.0   
+Southern Asia                       0.0    5.0   2.0  0.0    5.0   2.0  0.0   
+Sub-Saharan Africa                  2.0   34.0   4.0  1.0   34.0   3.0  2.0   
+Western Europe                      0.0    1.0  20.0  0.0    0.0  21.0  0.0   
+                                              
+Year                                          
+Level                           Middle  High  
+Region                                        
+Australia and New Zealand          0.0   2.0  
+Central and Eastern Europe         5.0  24.0  
+Eastern Asia                       1.0   5.0  
+Latin America and Caribbean        1.0  21.0  
+Middle East and Northern Africa    7.0  12.0  
+North America                      0.0   2.0  
+Southeastern Asia                  2.0   6.0  
+Southern Asia                      5.0   2.0  
+Sub-Saharan Africa                34.0   3.0  
+Western Europe                     0.0  21.0  
+```
