@@ -286,3 +286,6 @@ for year in [2015,2016,2017]:
     pivot_df['Country', year].plot(bind='bar', stacked=True)
     plt.show()
 ```
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_2015.png)
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_2016.png)
+![](https://github.com/davidkorea/happiness_score/blob/master/pivot_2017.png)
