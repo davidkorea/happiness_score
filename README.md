@@ -24,6 +24,33 @@ data_df.sort_values(['Year','Happiness Score'], ascending=[True,False], inplace=
   - year: low-high, 2013-2014-2015  
   - score: high-low
 
+```
+         Country                     Region  Happiness Rank  Happiness Score  \
+141  Switzerland             Western Europe             1.0            7.587   
+60       Iceland             Western Europe             2.0            7.561   
+38       Denmark             Western Europe             3.0            7.527   
+108       Norway             Western Europe             4.0            7.522   
+25        Canada              North America             5.0            7.427   
+46       Finland             Western Europe             6.0            7.406   
+102  Netherlands             Western Europe             7.0            7.378   
+140       Sweden             Western Europe             8.0            7.364   
+103  New Zealand  Australia and New Zealand             9.0            7.286   
+6      Australia  Australia and New Zealand            10.0            7.284   
+     Economy (GDP per Capita)  Year  
+141                   1.39651  2015  
+60                    1.30232  2015  
+38                    1.32548  2015  
+108                   1.45900  2015  
+25                    1.32629  2015  
+46                    1.29025  2015  
+102                   1.32944  2015  
+140                   1.33171  2015  
+103                   1.25018  2015  
+6                     1.33358  2015  
+
+```
+
+
 3. groupby - MULTI COLUMNS - MULTI-IDNEX
 ```php
 grouped_year_region_df = data_df.groupby(by=['Year','Region'])['Happiness Score'].mean()
