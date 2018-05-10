@@ -37,9 +37,11 @@ def analyse_data(data_df):
 
 def plot(pivot_df):
     for year in [2015,2016,2017]:
-        pivot_df['Country',year].plot(kind='bar',stacked=True,title=year)
+        pivot_df['Country',year].plot(kind='bar',stacked=True,
+                                      title='Happiness Level of {}'.format(year))
         plt.tight_layout()
         plt.legend(loc='best')
+        plt.savefig('./pivot_{}.png'.format(year))
         plt.show()
 
 def main():
