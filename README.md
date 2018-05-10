@@ -1,5 +1,9 @@
 # Happiness Report Analyse
 
+# 0 
+1. ```data_df.read_csv('./csv')```
+2. ```data_df.sort_values(['Year','Score'], ascending=[True, False], inplace=True)```
+
 # 1. Happiness Score
 ## 1.1 Basic
 
@@ -147,3 +151,29 @@ plt.show()
 ![](https://github.com/davidkorea/happiness_score/blob/master/images/task2.jpg)
 ![](https://github.com/davidkorea/happiness_score/blob/master/images/apply.jpg)
 ![](https://github.com/davidkorea/happiness_score/blob/master/images/cut.jpg)
+
+## 2.2 Summary
+1. collect_data()
+```php
+data_df = pd.read_csv('./data_pd/csv')
+data_df.dropna(inplace=True)
+```
+2. sort_data
+```php
+data_df.sort_values(['Year','Happiness Score'],ascending=[True,False].inplaxe=True)
+```
+3. create Level 
+create a new column named 'Level', which is ranked by 'Scores'
+- apply()
+```php
+def score2level(vars):
+  if var <= 3:
+    level = 'Low'
+  elif var <= 5:
+    level = 'Middle'
+  else:
+    level = 'High'
+   return level
+   
+data_df['Level'] = data_df['Happiness Score'].apply(score2level)
+```
