@@ -1,6 +1,6 @@
-# happiness_report
+# Happiness Report Analyse
 
-# 1. happiness score
+# 1. Happiness Score
 ## 1.1 Basic
 
 ![](https://github.com/davidkorea/happiness_score/blob/master/images/task.png)
@@ -140,3 +140,10 @@ plt.show()
 ```
 ![](https://github.com/davidkorea/happiness_score/blob/master/pivot_score.png)
 ![](https://github.com/davidkorea/happiness_score/blob/master/pivot_gdp.png)
+
+
+# 2. Hapiness Level
+## 2.1 Basic
+![](https://github.com/davidkorea/happiness_score/blob/master/images/task2.jpg)
+![](https://github.com/davidkorea/happiness_score/blob/master/images/apply.jpg)
+![](https://github.com/davidkorea/happiness_score/blob/master/images/cut.jpg)
